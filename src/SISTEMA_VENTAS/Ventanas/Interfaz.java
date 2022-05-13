@@ -13,6 +13,9 @@ import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.WindowEvent;
 
+import SISTEMA_VENTAS.Software;
+
+
 /**
  *
  * @author lgust
@@ -138,31 +141,56 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        //Declarando variables
         
-         //Declarando variables;
         String userValue = txtUser.getText();        //get user entered username from the textField1  
         String passValue = txtpassword.getText();        //get user entered pasword from the textField2  
      
-        if (userValue.equals("Robinson") && passValue.equals("123")) 
+        
+        //Login para cajero
+        if (userValue.equals("cajero") && passValue.equals("123")) 
         {
-            
-            
             Software x = new Software();
             
-            x.setVisible(true);
-            
-          close();
-            
-            
-           
-            
-            
+            //Desabilitando los textbox correspondientes
+            x.DisableTextBoxes();
             
             
      
-
-        
+            x.setVisible(true);
+            
+            
+            
+            
+          close();
         }
+        
+        
+        
+        //Login para administrador;
+        
+        if (userValue.equals("admin") && passValue.equals("123")) 
+        {
+            Software x = new Software();
+            
+            x.LoginAdministrador();
+     
+            x.setVisible(true);
+            
+            
+            
+            
+          close();
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
    
 
