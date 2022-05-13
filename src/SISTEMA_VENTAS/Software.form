@@ -107,9 +107,9 @@
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                                          <Component id="txteliminars1" min="-2" pref="183" max="-2" attributes="0"/>
+                                          <Component id="btnGestionarClientes" min="-2" pref="183" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="txteliminars2" min="-2" pref="203" max="-2" attributes="0"/>
+                                          <Component id="btnGestionarProvee" min="-2" pref="203" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -189,8 +189,8 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblRol" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txteliminars2" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="txteliminars1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="btnGestionarProvee" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="btnGestionarClientes" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               </Group>
@@ -981,7 +981,7 @@
             <Property name="text" type="java.lang.String" value="Texto"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="txteliminars1">
+        <Component class="javax.swing.JButton" name="btnGestionarClientes">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1000,10 +1000,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txteliminars1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGestionarClientesActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="txteliminars2">
+        <Component class="javax.swing.JButton" name="btnGestionarProvee">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1022,7 +1022,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txteliminars2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGestionarProveeActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnExportar">

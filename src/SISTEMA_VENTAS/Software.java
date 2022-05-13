@@ -6,6 +6,10 @@ import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import GESTION_CLIENTES.Gestion_clientes;
+import GESTION_PROVEEDORES.Gestion_proveedores;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 
 
 
@@ -64,6 +68,19 @@ public class Software extends javax.swing.JFrame {
     
     
     
+         
+         
+    public void close()
+    {
+            
+        WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
+        
+        
+    }
+         
+         
+         
     
     
     
@@ -124,8 +141,8 @@ public class Software extends javax.swing.JFrame {
         btnExportarCantidad = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         lblRol = new javax.swing.JLabel();
-        txteliminars1 = new javax.swing.JButton();
-        txteliminars2 = new javax.swing.JButton();
+        btnGestionarClientes = new javax.swing.JButton();
+        btnGestionarProvee = new javax.swing.JButton();
         btnExportar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -513,25 +530,25 @@ public class Software extends javax.swing.JFrame {
         lblRol.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblRol.setText("Texto");
 
-        txteliminars1.setBackground(new java.awt.Color(255, 255, 255));
-        txteliminars1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txteliminars1.setForeground(new java.awt.Color(153, 0, 204));
-        txteliminars1.setText("GESTIONAR CLIENTES");
-        txteliminars1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txteliminars1.addActionListener(new java.awt.event.ActionListener() {
+        btnGestionarClientes.setBackground(new java.awt.Color(255, 255, 255));
+        btnGestionarClientes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGestionarClientes.setForeground(new java.awt.Color(153, 0, 204));
+        btnGestionarClientes.setText("GESTIONAR CLIENTES");
+        btnGestionarClientes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnGestionarClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txteliminars1ActionPerformed(evt);
+                btnGestionarClientesActionPerformed(evt);
             }
         });
 
-        txteliminars2.setBackground(new java.awt.Color(255, 255, 255));
-        txteliminars2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txteliminars2.setForeground(new java.awt.Color(153, 0, 204));
-        txteliminars2.setText("GESTONAR PROVEEDORES");
-        txteliminars2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txteliminars2.addActionListener(new java.awt.event.ActionListener() {
+        btnGestionarProvee.setBackground(new java.awt.Color(255, 255, 255));
+        btnGestionarProvee.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGestionarProvee.setForeground(new java.awt.Color(153, 0, 204));
+        btnGestionarProvee.setText("GESTONAR PROVEEDORES");
+        btnGestionarProvee.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnGestionarProvee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txteliminars2ActionPerformed(evt);
+                btnGestionarProveeActionPerformed(evt);
             }
         });
 
@@ -593,9 +610,9 @@ public class Software extends javax.swing.JFrame {
                                             .addGap(253, 253, 253)))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGap(91, 91, 91)
-                                        .addComponent(txteliminars1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnGestionarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txteliminars2, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(btnGestionarProvee, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(304, 304, 304)
                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -654,8 +671,8 @@ public class Software extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(lblRol)
-                    .addComponent(txteliminars2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txteliminars1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnGestionarProvee, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGestionarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13))
         );
 
@@ -770,13 +787,24 @@ public class Software extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnExportarCantidadActionPerformed
 
-    private void txteliminars1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txteliminars1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txteliminars1ActionPerformed
+    private void btnGestionarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarClientesActionPerformed
 
-    private void txteliminars2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txteliminars2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txteliminars2ActionPerformed
+        Gestion_clientes gestion_clientes = new Gestion_clientes();
+        
+        gestion_clientes.setVisible(true);
+        
+        close();
+
+        
+    }//GEN-LAST:event_btnGestionarClientesActionPerformed
+
+    private void btnGestionarProveeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarProveeActionPerformed
+        
+       GESTION_PROVEEDORES.Gestion_proveedores gestion_proveedores = new Gestion_proveedores();
+       gestion_proveedores.setVisible(true);
+        
+        close();
+    }//GEN-LAST:event_btnGestionarProveeActionPerformed
 
     private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
         if (jTableSubtotal.getRowCount() > 0) {
@@ -845,6 +873,8 @@ public class Software extends javax.swing.JFrame {
     private javax.swing.JButton btnExportar;
     private javax.swing.JButton btnExportarCantidad;
     private javax.swing.JButton btnExportarSubTotal;
+    private javax.swing.JButton btnGestionarClientes;
+    private javax.swing.JButton btnGestionarProvee;
     private javax.swing.JButton btnagregarusuarios;
     private javax.swing.JButton btncomprar;
     private javax.swing.JButton btneliminaru;
@@ -884,8 +914,6 @@ public class Software extends javax.swing.JFrame {
     private javax.swing.JTextField txtdni;
     private javax.swing.JButton txteliminarp;
     private javax.swing.JButton txteliminars;
-    private javax.swing.JButton txteliminars1;
-    private javax.swing.JButton txteliminars2;
     private javax.swing.JTextField txtnombres;
     private javax.swing.JTextField txtprecio;
     private javax.swing.JTextField txtstock;
