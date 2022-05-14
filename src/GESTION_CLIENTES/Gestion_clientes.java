@@ -7,6 +7,7 @@ package GESTION_CLIENTES;
 
 import SISTEMA_VENTAS.Software;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.util.ArrayList;
@@ -82,6 +83,30 @@ public class Gestion_clientes extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Teléfono:");
+
+        txtnombres.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnombresKeyTyped(evt);
+            }
+        });
+
+        txtapellidos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtapellidosKeyTyped(evt);
+            }
+        });
+
+        txtdni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtdniKeyTyped(evt);
+            }
+        });
+
+        txttelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txttelefonoKeyTyped(evt);
+            }
+        });
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -382,6 +407,69 @@ public class Gestion_clientes extends javax.swing.JFrame {
             
             //close();
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void txtnombresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombresKeyTyped
+        // TODO add your handling code here:
+         char nombres = evt.getKeyChar();
+        if ((nombres < 'a' || nombres > 'z') && (nombres < 'A' || nombres > 'Z')
+                && (nombres != (char) KeyEvent.VK_BACK_SPACE) && (nombres != (char) KeyEvent.VK_SPACE)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "! Solo se admite texto !", "VALIDANDO NOMBRES",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+        }
+    }//GEN-LAST:event_txtnombresKeyTyped
+
+    private void txtapellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtapellidosKeyTyped
+        // TODO add your handling code here:
+        char apellidos = evt.getKeyChar();
+        if ((apellidos < 'a' || apellidos > 'z') && (apellidos < 'A' || apellidos > 'Z')
+                && (apellidos != (char) KeyEvent.VK_BACK_SPACE) && (apellidos != (char) KeyEvent.VK_SPACE)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "¡ Solo se admite texto !", "VALIDANDO APELLIDOS",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+        }
+    }//GEN-LAST:event_txtapellidosKeyTyped
+
+    private void txtdniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdniKeyTyped
+        // TODO add your handling code here:
+        char dni = evt.getKeyChar();
+        if (txtdni.getText().length() == 8) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Solo se admiten 8 digitos");
+
+        }
+        if ((dni < '0' || dni > '9') && (dni != (char) KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "¡ Solo se admiten números !", "VALIDANDO DNI",
+                    JOptionPane.INFORMATION_MESSAGE);
+        } else if ((dni < '0' || dni > '9') && (dni != (char) KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "¡ Solo se admiten números !", "VALIDANDO DNI",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_txtdniKeyTyped
+
+    private void txttelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttelefonoKeyTyped
+        // TODO add your handling code here:
+         char celular = evt.getKeyChar();
+        if (txttelefono.getText().length() == 9) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Solo se admiten 9 digitos");
+        }
+        if ((celular < '0' || celular > '9') && (celular != (char) KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "¡ Solo se admiten números !", "VALIDANDO CELULAR",
+                    JOptionPane.INFORMATION_MESSAGE);
+        } else if ((celular < '0' || celular > '9') && (celular != (char) KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "¡ Solo se admiten números !", "VALIDANDO CELULAR",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_txttelefonoKeyTyped
 
     /**
      * @param args the command line arguments
