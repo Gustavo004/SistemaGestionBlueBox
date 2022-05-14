@@ -7,6 +7,7 @@ package GESTION_PROVEEDORES;
 
 import SISTEMA_VENTAS.Software;
 import java.awt.Toolkit;
+import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -30,6 +32,8 @@ public class Gestion_proveedores extends javax.swing.JFrame {
      */
     int filas;
 
+   
+    
     public Gestion_proveedores() {
         initComponents();
         modelo = new DefaultTableModel();
@@ -40,8 +44,27 @@ public class Gestion_proveedores extends javax.swing.JFrame {
         modelo.addColumn("Teléfono");
         modelo.addColumn("Email");
         this.tabla.setModel(modelo);
+        
+        Bloquear();
+        
+
     }
 
+   
+    
+    //Bloquear campos;
+    private void  Bloquear()
+    {
+    
+    txtidProveedor.setEnabled(false);
+    
+    }
+    
+    
+    
+    
+   
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,7 +88,7 @@ public class Gestion_proveedores extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtid = new javax.swing.JTextField();
+        txtidProveedor = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -155,9 +178,9 @@ public class Gestion_proveedores extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Teléfono:");
 
-        txtid.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtidProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtidKeyTyped(evt);
+                txtidProveedorKeyTyped(evt);
             }
         });
 
@@ -178,6 +201,16 @@ public class Gestion_proveedores extends javax.swing.JFrame {
         });
 
         combosector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Comercial", "Industrial", "Ejecutivo" }));
+        combosector.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                combosectorItemStateChanged(evt);
+            }
+        });
+        combosector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combosectorActionPerformed(evt);
+            }
+        });
 
         txtemail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -247,7 +280,7 @@ public class Gestion_proveedores extends javax.swing.JFrame {
                                     .addComponent(jLabel3))
                                 .addGap(55, 55, 55)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtidProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(combosector, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -270,7 +303,7 @@ public class Gestion_proveedores extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtidProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -312,26 +345,27 @@ public class Gestion_proveedores extends javax.swing.JFrame {
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
         // TODO add your handling code here:
         int seleccion = tabla.getSelectedRow();
-        txtid.setText(tabla.getValueAt(seleccion, 0).toString());
+        txtidProveedor.setText(tabla.getValueAt(seleccion, 0).toString());
         combosector.setSelectedItem(tabla.getValueAt(seleccion, 1).toString());
         txtruc.setText(tabla.getValueAt(seleccion, 2).toString());
         txtdireccion.setText(tabla.getValueAt(seleccion, 3).toString());
         txttelefono.setText(tabla.getValueAt(seleccion, 4).toString());
         txtemail.setText(tabla.getValueAt(seleccion, 5).toString());
+       
         filas = seleccion;
     }//GEN-LAST:event_tablaMouseClicked
 
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
         // TODO add your handling code here:
         this.modelo.addRow(new Object[]{
-            this.txtid.getText(), this.combosector.getSelectedItem(), this.txtruc.getText(), this.txtdireccion.getText(), this.txttelefono.getText(), this.txtemail.getText()});
-        this.txtid.setText("");
+            this.txtidProveedor.getText(), this.combosector.getSelectedItem(), this.txtruc.getText(), this.txtdireccion.getText(), this.txttelefono.getText(), this.txtemail.getText()});
+        this.txtidProveedor.setText("");
         this.combosector.setSelectedIndex(0);
         this.txtruc.setText("");
         this.txtdireccion.setText("");
         this.txttelefono.setText("");
         this.txtemail.setText("");
-        txtid.grabFocus();
+        txtidProveedor.grabFocus();
 
     }//GEN-LAST:event_btnagregarActionPerformed
 
@@ -349,7 +383,7 @@ public class Gestion_proveedores extends javax.swing.JFrame {
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
         // TODO add your handling code here:
         String[] datos = new String[6];
-        datos[0] = txtid.getText();
+        datos[0] = txtidProveedor.getText();
         datos[1] = this.combosector.getSelectedItem().toString();
         datos[2] = txtruc.getText();
         datos[3] = txtdireccion.getText();
@@ -364,13 +398,13 @@ public class Gestion_proveedores extends javax.swing.JFrame {
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
         // TODO add your handling code here:
 
-        this.txtid.setText("");
+        this.txtidProveedor.setText("");
         this.combosector.setSelectedIndex(0);
         this.txtruc.setText("");
         this.txtdireccion.setText("");
         this.txttelefono.setText("");
         this.txtemail.setText("");
-        txtid.grabFocus();
+        txtidProveedor.grabFocus();
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
@@ -426,10 +460,10 @@ public class Gestion_proveedores extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnRegresarActionPerformed
 
-    private void txtidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidKeyTyped
+    private void txtidProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidProveedorKeyTyped
         // TODO add your handling code here:
         char dni = evt.getKeyChar();
-        if (txtid.getText().length() == 2) {
+        if (txtidProveedor.getText().length() == 2) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
             JOptionPane.showMessageDialog(null, "Solo se admiten 2 digitos");
@@ -444,7 +478,7 @@ public class Gestion_proveedores extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "¡ Solo se admiten números !", "VALIDANDO DNI",
                     JOptionPane.INFORMATION_MESSAGE);
         }
-    }//GEN-LAST:event_txtidKeyTyped
+    }//GEN-LAST:event_txtidProveedorKeyTyped
 
     private void txtrucKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtrucKeyTyped
         // TODO add your handling code here:
@@ -512,6 +546,26 @@ public class Gestion_proveedores extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtemailFocusLost
 
+    private void combosectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combosectorActionPerformed
+        
+    }//GEN-LAST:event_combosectorActionPerformed
+
+    private void combosectorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combosectorItemStateChanged
+        
+                
+        String id = (String) combosector.getSelectedItem();
+        
+        if (id.equalsIgnoreCase("Comercial")) {
+            txtidProveedor.setText("1");
+        } else if (id.equalsIgnoreCase("Industrial")) {
+            txtidProveedor.setText("2");
+        } else if (id.equalsIgnoreCase("Ejecutivo")) {
+            txtidProveedor.setText("3");
+        }
+        
+        
+    }//GEN-LAST:event_combosectorItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -568,7 +622,7 @@ public class Gestion_proveedores extends javax.swing.JFrame {
     private javax.swing.JTable tabla;
     private javax.swing.JTextField txtdireccion;
     private javax.swing.JTextField txtemail;
-    private javax.swing.JTextField txtid;
+    private javax.swing.JTextField txtidProveedor;
     private javax.swing.JTextField txtruc;
     private javax.swing.JTextField txttelefono;
     // End of variables declaration//GEN-END:variables
