@@ -15,6 +15,7 @@ import java.awt.event.WindowEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,13 +26,49 @@ public class Software extends javax.swing.JFrame {
     Usuarios usuarios = new Usuarios();
     Productos producto = new Productos();
     Ventas venta = new Ventas();
+    
+    DefaultTableModel dm;
+    
+    
 
     public Software() {
         initComponents();
         usuarios.CabeceraUsuario(jTableUsuarios);
         producto.CebeceraProductos(jTableProducto);
         venta.CebecerasubTotalVenta(jTableSubtotal);
+        
+        
+        createColumns();
     }
+    
+    private void createColumns()
+    {
+        dm = (DefaultTableModel)jTableProducto.getModel();
+ 
+    }
+    
+    //Add Rows
+    private void Populate (String name, String pos, String team)
+    {
+        //Get model
+         dm = (DefaultTableModel)jTableProducto.getModel();
+    
+         //Get rows;
+         
+         String []rowData ={name,pos,team};
+         
+         
+         dm.addRow(rowData);
+         
+         
+    }
+    
+    
+    
+    
+    
+    
+    
 
     //Metodo para desactivar los txt's
     public void DisableTextBoxes() {
@@ -759,6 +796,10 @@ public class Software extends javax.swing.JFrame {
     private void txtagregarpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtagregarpActionPerformed
         /*producto.AgregarProducto(txtdescripcion, txtstock, txtprecio);
         producto.LimpiarDatosProductos(txtdescripcion, txtstock, txtprecio);*/
+        
+        Populate(cmbdescripcion.getSelectedItem().toString(), cmbstock.getSelectedItem().toString(), cmbprecio.getSelectedItem().toString());
+       
+        
     }//GEN-LAST:event_txtagregarpActionPerformed
 
     private void btncomprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncomprarActionPerformed
