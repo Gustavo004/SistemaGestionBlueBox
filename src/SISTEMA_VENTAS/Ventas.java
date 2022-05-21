@@ -63,7 +63,7 @@ public class Ventas {
     DefaultTableModel modelo = new DefaultTableModel();
 
     public void CebecerasubTotalVenta(JTable tablaSubtotal) {
-        String[] cabecera = new String[]{"NOMBRE PRODUCTO", "SUBTOTAL"};
+        String[] cabecera = new String[]{"NOMBRE PRODUCTO", "SUBTOTAL", "USUARIO","FECHA","CLIENTE"};
         modelo.setColumnIdentifiers(cabecera);
         tablaSubtotal.setModel(modelo);
     }

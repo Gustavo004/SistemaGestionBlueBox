@@ -14,8 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -29,6 +31,10 @@ public class Gestion_clientes extends javax.swing.JFrame {
     DefaultTableModel modelo;
     int filas;
 
+    TableRowSorter<DefaultTableModel> sorter;
+    
+    
+    
     public Gestion_clientes() {
         initComponents();
         modelo = new DefaultTableModel();
@@ -37,7 +43,33 @@ public class Gestion_clientes extends javax.swing.JFrame {
         modelo.addColumn("DNI");
         modelo.addColumn("Teléfono");
         this.tabla.setModel(modelo);
+        
+        
+        tabla.setAutoCreateRowSorter(true);
+        sorter = new TableRowSorter<>(modelo);
+        tabla.setRowSorter(sorter);
     }
+    
+    
+    //Para buscar en el Jtable;
+    private void Filtrar()
+    {
+        try {
+            
+            sorter.setRowFilter(RowFilter.regexFilter(txtBuscar.getText()));
+            
+            
+        } catch (Exception e) {
+        }
+        
+    
+    
+    }
+    
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,6 +99,7 @@ public class Gestion_clientes extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         btnExportarClientes = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
+        txtBuscar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -190,6 +223,15 @@ public class Gestion_clientes extends javax.swing.JFrame {
             }
         });
 
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -239,10 +281,12 @@ public class Gestion_clientes extends javax.swing.JFrame {
                                 .addGap(53, 53, 53)
                                 .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
+                        .addGap(77, 77, 77)
                         .addComponent(btnExportarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(34, 34, 34)
+                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -280,7 +324,8 @@ public class Gestion_clientes extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnExportarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
@@ -471,6 +516,14 @@ public class Gestion_clientes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txttelefonoKeyTyped
 
+    private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarKeyTyped
+
+    private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
+       Filtrar();
+    }//GEN-LAST:event_txtBuscarKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -522,6 +575,7 @@ public class Gestion_clientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla;
+    private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtapellidos;
     private javax.swing.JTextField txtdni;
     private javax.swing.JTextField txtnombres;
