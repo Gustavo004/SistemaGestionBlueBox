@@ -1,17 +1,25 @@
 package SISTEMA_VENTAS;
 
+import javax.print.DocFlavor;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 public class Usuarios {
 
+     TableRowSorter<DefaultTableModel> sorter;
+    
+    
     private String nombres;
     private String apellidos;
     private String dni;
     private String celular;
     private String correo;
+
+   
 
     public Usuarios(String nombres, String apellidos, String dni, String celular, String correo) {
 
@@ -62,8 +70,40 @@ public class Usuarios {
     public void CabeceraUsuario(JTable TableUsuarios) {
         String[] cabecera = new String[]{"NOMBRES", "APELLIDOS", "DNI", "CELULAR", "CORREO"};
         modelo.setColumnIdentifiers(cabecera);
+       
+        //Agregar nuevo;
         TableUsuarios.setModel(modelo);
+        TableUsuarios.setAutoCreateRowSorter(true);
+        sorter = new TableRowSorter<>(modelo); 
+        TableUsuarios.setRowSorter(sorter);
     }
+    
+    //FILTRO USUARIOS
+   public void Filtrar()
+    {
+        
+        JTextField entry;
+        JTextField entryToSet = new JTextField();
+
+        
+        try {
+            
+            sorter.setRowFilter(RowFilter.regexFilter(entryToSet.getText()));
+            
+            
+        } catch (Exception e) {
+        }
+        
+    
+    
+    }
+    
+    
+    
+    
+    
+    
+    
 
     public void AgregarUsuario(JTextField nombres, JTextField apellidos, JTextField dni, JTextField celular, JTextField correo) {
 
