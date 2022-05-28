@@ -102,6 +102,19 @@ public class Software extends javax.swing.JFrame {
         jTableUsuarios.setEnabled(false);
         btneliminaru.setEnabled(false);
 
+        
+        btnGestionarClientes.setEnabled(false);
+        btnGestionarProvee.setEnabled(false);
+        btnGestionarProductos.setEnabled(false);
+        
+        
+        
+        
+        
+        
+        
+        
+        
         //AGRENDO INFO DEL USUARIO:
         lblRol.setText("Cajero001");
 
