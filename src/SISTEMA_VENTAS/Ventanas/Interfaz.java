@@ -132,6 +132,7 @@ public class Interfaz extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 110, 30));
 
         JlabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/Imagenes/Almacen Foto.jpg"))); // NOI18N
+        JlabelFondo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(JlabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 662, 566));
 
         pack();

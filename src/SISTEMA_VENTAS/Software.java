@@ -240,6 +240,7 @@ public class Software extends javax.swing.JFrame {
         txtBuscarUsuario = new javax.swing.JTextField();
         ComboBoxCliente = new javax.swing.JComboBox<>();
         btnGestionarProductos = new javax.swing.JButton();
+        btncerrarsesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -340,8 +341,6 @@ public class Software extends javax.swing.JFrame {
         btnagregarusuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/agregar.jpg"))); // NOI18N
         btnagregarusuarios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnagregarusuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnagregarusuarios.setMaximumSize(new java.awt.Dimension(69, 69));
-        btnagregarusuarios.setMinimumSize(new java.awt.Dimension(69, 69));
         btnagregarusuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnagregarusuariosActionPerformed(evt);
@@ -451,8 +450,6 @@ public class Software extends javax.swing.JFrame {
         txtagregarp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/agregar.jpg"))); // NOI18N
         txtagregarp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtagregarp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txtagregarp.setMaximumSize(new java.awt.Dimension(69, 69));
-        txtagregarp.setMinimumSize(new java.awt.Dimension(69, 69));
         txtagregarp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtagregarpActionPerformed(evt);
@@ -551,8 +548,6 @@ public class Software extends javax.swing.JFrame {
         btncomprar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/buy.jpg"))); // NOI18N
         btncomprar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btncomprar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btncomprar.setMaximumSize(new java.awt.Dimension(69, 69));
-        btncomprar.setMinimumSize(new java.awt.Dimension(69, 69));
         btncomprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncomprarActionPerformed(evt);
@@ -565,8 +560,6 @@ public class Software extends javax.swing.JFrame {
         txteliminarp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/eliminar.jpg"))); // NOI18N
         txteliminarp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txteliminarp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txteliminarp.setMaximumSize(new java.awt.Dimension(69, 69));
-        txteliminarp.setMinimumSize(new java.awt.Dimension(69, 69));
         txteliminarp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txteliminarpActionPerformed(evt);
@@ -609,8 +602,6 @@ public class Software extends javax.swing.JFrame {
         txteliminars.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/eliminar.jpg"))); // NOI18N
         txteliminars.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txteliminars.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        txteliminars.setMaximumSize(new java.awt.Dimension(69, 69));
-        txteliminars.setMinimumSize(new java.awt.Dimension(69, 69));
         txteliminars.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txteliminarsActionPerformed(evt);
@@ -661,8 +652,6 @@ public class Software extends javax.swing.JFrame {
         btnExportarSubTotal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/exportar.jpg"))); // NOI18N
         btnExportarSubTotal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnExportarSubTotal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnExportarSubTotal.setMaximumSize(new java.awt.Dimension(69, 69));
-        btnExportarSubTotal.setMinimumSize(new java.awt.Dimension(69, 69));
         btnExportarSubTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExportarSubTotalActionPerformed(evt);
@@ -675,8 +664,6 @@ public class Software extends javax.swing.JFrame {
         btnExportarCantidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/exportar.jpg"))); // NOI18N
         btnExportarCantidad.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnExportarCantidad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnExportarCantidad.setMaximumSize(new java.awt.Dimension(69, 69));
-        btnExportarCantidad.setMinimumSize(new java.awt.Dimension(69, 69));
         btnExportarCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExportarCantidadActionPerformed(evt);
@@ -769,6 +756,16 @@ public class Software extends javax.swing.JFrame {
             }
         });
 
+        btncerrarsesion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btncerrarsesion.setForeground(new java.awt.Color(0, 102, 0));
+        btncerrarsesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/salir.jpg"))); // NOI18N
+        btncerrarsesion.setPreferredSize(new java.awt.Dimension(69, 69));
+        btncerrarsesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncerrarsesionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -842,7 +839,9 @@ public class Software extends javax.swing.JFrame {
                         .addComponent(btnGestionarProvee, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnGestionarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))))
+                        .addGap(29, 29, 29)
+                        .addComponent(btncerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -896,15 +895,17 @@ public class Software extends javax.swing.JFrame {
                             .addComponent(jLabel11)
                             .addComponent(lblRol)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnGestionarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnGestionarProvee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnGestionarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 88, Short.MAX_VALUE))
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btncerrarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnGestionarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnGestionarProvee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnGestionarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 90, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -20, 1260, 960));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1260, 960));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1204,6 +1205,11 @@ public class Software extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnGestionarProductosActionPerformed
 
+    private void btncerrarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncerrarsesionActionPerformed
+        // TODO add your handling code here:
+         System.exit(0);
+    }//GEN-LAST:event_btncerrarsesionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1256,6 +1262,7 @@ public class Software extends javax.swing.JFrame {
     private javax.swing.JButton btnGestionarProductos;
     private javax.swing.JButton btnGestionarProvee;
     private javax.swing.JButton btnagregarusuarios;
+    private javax.swing.JButton btncerrarsesion;
     private javax.swing.JButton btncomprar;
     private javax.swing.JButton btneliminaru;
     private javax.swing.JComboBox<String> cmbdescripcion;

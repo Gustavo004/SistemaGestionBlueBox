@@ -43,6 +43,7 @@ public class Gestion_productos extends javax.swing.JFrame {
         modelo.addColumn("Producto");
         modelo.addColumn("Stock");
         modelo.addColumn("Precio");
+        modelo.addColumn("IDProducto");
         this.tabla.setModel(modelo);
         tabla.setAutoCreateRowSorter(true);
         sorter = new TableRowSorter<>(modelo);
@@ -65,7 +66,7 @@ public class Gestion_productos extends javax.swing.JFrame {
     }
 
     
-    public int contador_Inicial=0;
+    public int contador_Inicial=1;
     public void AsignarContador(){
       //Asginando un contador;
     
@@ -187,6 +188,7 @@ public class Gestion_productos extends javax.swing.JFrame {
         btnagregar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnagregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/agregar.jpg"))); // NOI18N
         btnagregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnagregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnagregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnagregarActionPerformed(evt);
@@ -196,6 +198,7 @@ public class Gestion_productos extends javax.swing.JFrame {
         btneditar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btneditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/editar.jpg"))); // NOI18N
         btneditar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btneditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btneditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btneditarActionPerformed(evt);
@@ -205,6 +208,7 @@ public class Gestion_productos extends javax.swing.JFrame {
         btneliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/eliminar.jpg"))); // NOI18N
         btneliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btneliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btneliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btneliminarActionPerformed(evt);
@@ -214,6 +218,7 @@ public class Gestion_productos extends javax.swing.JFrame {
         btnnuevo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnnuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/nuevo.jpg"))); // NOI18N
         btnnuevo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnnuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnnuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnnuevoActionPerformed(evt);
@@ -223,6 +228,7 @@ public class Gestion_productos extends javax.swing.JFrame {
         btnsalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/salir.jpg"))); // NOI18N
         btnsalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnsalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsalirActionPerformed(evt);
@@ -251,6 +257,7 @@ public class Gestion_productos extends javax.swing.JFrame {
         btnañadir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnañadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/agregar.jpg"))); // NOI18N
         btnañadir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnañadir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnañadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnañadirActionPerformed(evt);
@@ -260,6 +267,7 @@ public class Gestion_productos extends javax.swing.JFrame {
         btnexportar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnexportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/exportar.jpg"))); // NOI18N
         btnexportar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnexportar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnexportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnexportarActionPerformed(evt);
@@ -269,6 +277,7 @@ public class Gestion_productos extends javax.swing.JFrame {
         btnregresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnregresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SISTEMA_VENTAS/regresar.jpg"))); // NOI18N
         btnregresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnregresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnregresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnregresarActionPerformed(evt);
@@ -453,10 +462,11 @@ public class Gestion_productos extends javax.swing.JFrame {
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
         // TODO add your handling code here:
 
-        String[] info = new String[3];
+        String[] info = new String[4];
         info[0] = txtproducto.getText();
         info[1] = txtstock.getText();
         info[2] = txtprecio.getText();
+        info[3]= txtId.getText();
 
         modelo.addRow(info);
         txtproducto.setText("");
